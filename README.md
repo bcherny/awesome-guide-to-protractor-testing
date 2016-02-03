@@ -49,6 +49,17 @@ some notes and lessons learned writing protractor tests and getting them to run 
       $$('#my-form input').get(0).sendKeys 'bar'
       expect(foo).toBe('bar')
   ```
+4. avoid `.then` when possible, since webdriver will [automatically queue up promises for you](http://angular.github.io/protractor/#/control-flow#promises-and-the-control-flow):
+
+  ```coffee
+  # good
+  @click button
+  @type 'foo'
+
+  # bad
+  @click button
+    .then => @type 'foo'
+  ```
 
 ### notes
 
