@@ -86,6 +86,16 @@ some notes and lessons learned writing protractor tests and getting them to run 
      console.log(require('util').inspect(browserLog))
    )
    ```
+   
+### common errors
+
+> `Error: Spec patterns did not match any files.`
+
+You need to compile your tests first, if using a pre-processor (CoffeeScript, TypeScript, etc.)
+
+> `UnknownError: unknown error: Chrome failed to start: exited abnormally`
+
+You need to start xvfb `Xvfb :10 -ac -screen 0 1024x768x24 &`
 
 ### setting up protractor on ci environments (eg. ubuntu)
 
